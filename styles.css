@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url(./images/old-library-medium.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 200vh;
+    overflow: auto;
+}
+header {
+    height: 10vh;
+    background-color: navy;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+}
+header h1 {
+    color: tan;
+    font-size: 3.5rem;
+}
+button#add {
+    font-size: 3rem;
+    padding: 1.5rem;
+    border: none;
+    line-height: 1.2rem;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    border-radius: 50%;
+}
+button#add:hover {
+    background-color: black;
+    color: buttonface;
+}
