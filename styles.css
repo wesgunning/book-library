@@ -31,6 +31,7 @@ header h1 {
     padding: 50px;
     height: 100%;
     width: 100%;
+    grid-row: 2;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
@@ -55,16 +56,16 @@ button#add:hover {
     color: buttonface;
     cursor: pointer;
 }
-body form {
-    height: 500px;
-    width: 300px;
+#container form {
+    height: 600px;
+    width: 450px;
     border-radius: 1rem;
     background-color: black;
-    opacity: 0.8;
-    position: relative;
+    position: absolute;
     z-index: 1;
     justify-self: center;
-    top: 5%;
+    grid-row: 2;
+    padding: 1rem;
 }
 .cards {
     background-color: hsla(0, 0%, 0%, 0.8);
