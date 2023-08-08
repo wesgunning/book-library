@@ -18,6 +18,8 @@ let myLibrary = [
         readStatus: 'yes'
         }
 ];
+
+// Global variables
 const container = document.getElementById('container');
 const form = document.createElement('form');
 
@@ -28,6 +30,7 @@ form.appendChild(exit);
 exit.setAttribute("onclick", "closeWindow()");
 exit.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close</title><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>`;
 
+// Constructor function
 function Book(title, author, pages, readStatus) {
     this.title = title,
     this.author = author,
@@ -35,7 +38,7 @@ function Book(title, author, pages, readStatus) {
     this.readStatus = readStatus;
 }
 
-function addBookToLibrary() {
+function buildLibrary() {
     for (let i=0; i<myLibrary.length; i++) {
         let book = document.createElement('div');
         book.classList.add('cards');
