@@ -74,7 +74,7 @@ function buildLibrary() {
         // Pages info
         let pages = document.createElement('p');
         pages.classList.add('key');
-        pages.innerText = '# of pages:';
+        pages.innerHTML = '#&nbsp;of&nbsp;pages:';
         book.appendChild(pages);
         let pagesInfo = document.createElement('p');
         pagesInfo.classList.add('value');
