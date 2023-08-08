@@ -135,8 +135,8 @@ input {
     font-size: 1.5rem;
 }
 input[type="checkbox"] {
-    height: 1.3rem;
-    width: 1.3rem;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 .one {
     justify-self: end;
@@ -147,8 +147,15 @@ input[type="checkbox"] {
 #form-submit {
     grid-column: 1/3;
     font-size: 1.5rem;
-    border: none;
+    border: 2px solid black;
     max-width: 50%;
     justify-self: center;
     padding: 1rem 2rem;
+    border-radius: 0.5rem;
+}
+#form-submit:hover {
+    background-color: black;
+    color: buttonface;
+    border-color: buttonface;
+    cursor: pointer;
 }
