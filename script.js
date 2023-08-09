@@ -102,22 +102,65 @@ function buildLibrary() {
 
 function openForm() {
     container.appendChild(form);
+    // Title
     let titleLabel = document.createElement('label');
     titleLabel.innerText = 'Title:';
     titleLabel.setAttribute('for', 'title');
+    titleLabel.setAttribute('required', 'true');
     titleLabel.classList.add('one');
     form.appendChild(titleLabel);
     let titleInput = document.createElement('input');
     titleInput.setAttribute('type','text');
+    titleInput.setAttribute('id', 'title');
     titleInput.classList.add('two');
     form.appendChild(titleInput);
+    // Author
+    let authorLabel = document.createElement('label');
+    authorLabel.innerText = 'Author:';
+    authorLabel.setAttribute('for', 'author');
+    authorLabel.classList.add('one');
+    form.appendChild(authorLabel);
+    let authorInput = document.createElement('input');
+    authorInput.setAttribute('type','text');
+    authorInput.setAttribute('id', 'author');
+    authorInput.classList.add('two');
+    form.appendChild(authorInput);
+    // Pages
+    let pagesLabel = document.createElement('label');
+    pagesLabel.innerHTML = '#&nbsp;of&nbsp;pages:';
+    pagesLabel.setAttribute('for', 'pages');
+    pagesLabel.classList.add('one');
+    form.appendChild(pagesLabel);
+    let pagesInput = document.createElement('input');
+    pagesInput.setAttribute('type','number');
+    pagesInput.setAttribute('id', 'pages');
+    pagesInput.setAttribute('min', '1');
+    pagesInput.classList.add('two');
+    form.appendChild(pagesInput);
+    // Read status
+    let checkboxInput = document.createElement('input');
+    checkboxInput.setAttribute('type','checkbox');
+    checkboxInput.setAttribute('id', 'read');
+    checkboxInput.classList.add('one');
+    form.appendChild(checkboxInput);
+    let checkboxLabel = document.createElement('label');
+    checkboxLabel.innerHTML = 'I&nbsp;have&nbsp;read&nbsp;this&nbsp;book';
+    checkboxLabel.setAttribute('for', 'read');
+    checkboxLabel.classList.add('two');
+    form.appendChild(checkboxLabel);
+    // Button
+    let submit = document.createElement('button');
+    submit.setAttribute('type', 'button');
+    submit.setAttribute('id', 'form-submit');
+    submit.innerText = 'Add book';
+    form.appendChild(submit);
     // Disable button to prevent multiple forms
     let btn = document.getElementById('add');
     btn.setAttribute("onclick", "");
 }
 
 function closeWindow() {
-    for (i=1; i<=form.childNodes.length; i++) {
+    for (i=form.childNodes.length; i>0; i--) {
         form.removeChild(form.childNodes[i]);
     }
     container.removeChild(form);
