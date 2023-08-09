@@ -42,6 +42,7 @@ function buildLibrary() {
     for (let i=0; i<myLibrary.length; i++) {
         let book = document.createElement('div');
         book.classList.add('cards');
+        book.setAttribute('data', i);
         container.appendChild(book);
 
         // Delete button
@@ -160,10 +161,10 @@ function openForm() {
 }
 
 function closeWindow() {
-    for (i=form.childNodes.length; i>0; i--) {
+    container.removeChild(form);
+    for (i=form.childNodes.length-1; i>0; i--) {
         form.removeChild(form.childNodes[i]);
     }
-    container.removeChild(form);
     let btn = document.getElementById('add');
     btn.setAttribute("onclick", "openForm()");
 }
