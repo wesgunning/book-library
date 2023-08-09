@@ -118,12 +118,12 @@ button.delete svg{
     stroke: white;
     fill: white;
 }
-p.key {
+.key {
     grid-column: 1;
     justify-self: end;
     align-self: start;
 }
-p.value {
+.value {
     grid-column: 2;
     align-self: start;
 }

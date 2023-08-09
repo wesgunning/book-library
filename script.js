@@ -15,7 +15,7 @@ let myLibrary = [
         title: 'The Martian',
         author: 'Andy Weir',
         pages: '305',
-        readStatus: 'yes'
+        readStatus: 'no'
         }
 ];
 
@@ -80,18 +80,46 @@ function buildLibrary() {
         pagesInfo.classList.add('value');
         pagesInfo.innerText = `${myLibrary[i].pages}`;
         book.appendChild(pagesInfo);
+
+        // Read status
+        var check = document.createElement('input');
+        check.setAttribute('type', 'checkbox');
+        const cls = ['key', 'checkbox']
+        check.classList.add(...cls);
+        book.appendChild(check);
+        let status = document.createElement('p');
+        status.classList.add('value');
+        book.appendChild(status);
+        if (myLibrary[i].readStatus == 'yes') {
+            check.setAttribute('checked', 'true');
+            status.innerText = "I have read this book";
+        }
+        else if (myLibrary[i].readStatus == 'no') {
+            status.innerText = "I haven't read this book yet"
+        }
     }
 }
 
 function openForm() {
     container.appendChild(form);
-
+    let titleLabel = document.createElement('label');
+    titleLabel.innerText = 'Title:';
+    titleLabel.setAttribute('for', 'title');
+    titleLabel.classList.add('one');
+    form.appendChild(titleLabel);
+    let titleInput = document.createElement('input');
+    titleInput.setAttribute('type','text');
+    titleInput.classList.add('two');
+    form.appendChild(titleInput);
     // Disable button to prevent multiple forms
     let btn = document.getElementById('add');
     btn.setAttribute("onclick", "");
 }
 
 function closeWindow() {
+    for (i=1; i<=form.childNodes.length; i++) {
+        form.removeChild(form.childNodes[i]);
+    }
     container.removeChild(form);
     let btn = document.getElementById('add');
     btn.setAttribute("onclick", "openForm()");
