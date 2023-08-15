@@ -49,7 +49,7 @@ function buildLibrary() {
         let exit = document.createElement('button');
         exit.classList.add('delete');
         book.appendChild(exit);
-        exit.setAttribute("onclick", "deleteBook()");
+        exit.setAttribute("onclick", "deleteBook(this)");
         exit.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close</title><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>`;
 
         // Title info
@@ -102,6 +102,7 @@ function buildLibrary() {
 }
 
 function openForm() {
+    form.classList.add('animate__animated', 'animate__zoomIn');
     container.appendChild(form);
     // Title
     let titleLabel = document.createElement('label');
@@ -161,10 +162,23 @@ function openForm() {
 }
 
 function closeWindow() {
-    container.removeChild(form);
+    form.classList.remove('animate__zoomIn');
+    form.classList.add('animate__zoomOut');
+    console.log('timeout');
+    setTimeout(() => {
+        alert('timeout complete');
+    }, 3000);
     for (i=form.childNodes.length-1; i>0; i--) {
         form.removeChild(form.childNodes[i]);
     }
     let btn = document.getElementById('add');
     btn.setAttribute("onclick", "openForm()");
+    form.classList.remove('animate__animated','animate__zoomOut');
+}
+
+function deleteBook(e) {
+    const data = e.parentElement.attributes.data.value;
+    console.log(data.value);
+    myLibrary.splice(data, (data+1));
+    console.log(myLibrary);
 }

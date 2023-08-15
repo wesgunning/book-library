@@ -73,8 +73,8 @@ button#add:hover {
     width: 450px;
     border-radius: 1rem;
     background-color: black;
-    animation-name: grow;
-    animation-duration: 1s;
+    /* animation-name: grow;
+    animation-duration: 1s; */
     position: absolute;
     z-index: 1;
     justify-self: center;
