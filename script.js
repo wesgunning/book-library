@@ -158,7 +158,7 @@ function openForm() {
     form.appendChild(submit);
     // Disable button to prevent multiple forms
     let btn = document.getElementById('add');
-    btn.setAttribute("onclick", "");
+    btn.setAttribute("onclick", "addBook()");
 }
 
 function closeWindow() {
@@ -178,9 +178,7 @@ function closeWindow() {
 
 function deleteBook(e) {
     // Remove cards
-    for (let i = 0; i<myLibrary.length; i++) {
-        container.removeChild(container.lastChild);
-    }
+    clearCards();
     // Remove book from myLibrary array
     const data = e.parentElement.attributes.data.value;
     console.log(data.value);
@@ -188,4 +186,14 @@ function deleteBook(e) {
     console.log(myLibrary);
     // Rebuild array
     buildLibrary();
+}
+
+function clearCards() {
+    for (let i = 0; i<myLibrary.length; i++) {
+        container.removeChild(container.lastChild);
+    }
+}
+
+function addBook() {
+    const author = document.getElementById
 }
