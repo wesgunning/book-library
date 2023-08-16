@@ -177,8 +177,15 @@ function closeWindow() {
 }
 
 function deleteBook(e) {
+    // Remove cards
+    for (let i = 0; i<myLibrary.length; i++) {
+        container.removeChild(container.lastChild);
+    }
+    // Remove book from myLibrary array
     const data = e.parentElement.attributes.data.value;
     console.log(data.value);
     myLibrary.splice(data, (data+1));
     console.log(myLibrary);
+    // Rebuild array
+    buildLibrary();
 }
