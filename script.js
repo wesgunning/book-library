@@ -206,12 +206,14 @@ function addBook() {
         // Pass to constructor function
         const newBook = new Book(title, author, pages, readStatus);
         console.log(newBook);
-        // Push book to library array
-        myLibrary.push(newBook);
         // Close form window
         closeWindow();
         // Rebuild cards
-        clearCards();
+        if (container.childNodes.length > 1) {
+            clearCards();
+        }
+        // Push book to library array
+        myLibrary.push(newBook);
         buildLibrary();
     }
 }
