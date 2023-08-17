@@ -3,19 +3,19 @@ let myLibrary = [
         title: 'The Hobbit',
         author: 'J.R.R. Tolkien',
         pages: '287',
-        readStatus: 'yes'
+        readStatus: true
     },
     {
         title: "Harry Potter and the Sorcerer's Stone",
         author: 'J.K. Rowling',
         pages: '307',
-        readStatus: 'yes'
+        readStatus: true
         },
     {
         title: 'The Martian',
         author: 'Andy Weir',
         pages: '305',
-        readStatus: 'no'
+        readStatus: false
         }
 ];
 
@@ -91,11 +91,11 @@ function buildLibrary() {
         let status = document.createElement('p');
         status.classList.add('value');
         book.appendChild(status);
-        if (myLibrary[i].readStatus == 'yes') {
+        if (myLibrary[i].readStatus == true) {
             check.setAttribute('checked', 'true');
             status.innerText = "I have read this book";
         }
-        else if (myLibrary[i].readStatus == 'no') {
+        else if (myLibrary[i].readStatus == false) {
             status.innerText = "I haven't read this book yet"
         }
     }
@@ -108,12 +108,12 @@ function openForm() {
     let titleLabel = document.createElement('label');
     titleLabel.innerText = 'Title:';
     titleLabel.setAttribute('for', 'title');
-    titleLabel.setAttribute('required', 'true');
     titleLabel.classList.add('one');
     form.appendChild(titleLabel);
     let titleInput = document.createElement('input');
     titleInput.setAttribute('type','text');
     titleInput.setAttribute('id', 'title');
+    titleInput.setAttribute('required', 'true');
     titleInput.classList.add('two');
     form.appendChild(titleInput);
     // Author
@@ -125,6 +125,7 @@ function openForm() {
     let authorInput = document.createElement('input');
     authorInput.setAttribute('type','text');
     authorInput.setAttribute('id', 'author');
+    authorInput.setAttribute('required', 'true');
     authorInput.classList.add('two');
     form.appendChild(authorInput);
     // Pages
@@ -137,6 +138,7 @@ function openForm() {
     pagesInput.setAttribute('type','number');
     pagesInput.setAttribute('id', 'pages');
     pagesInput.setAttribute('min', '1');
+    pagesInput.setAttribute('required', 'true');
     pagesInput.classList.add('two');
     form.appendChild(pagesInput);
     // Read status
@@ -152,37 +154,37 @@ function openForm() {
     form.appendChild(checkboxLabel);
     // Button
     let submit = document.createElement('button');
-    submit.setAttribute('type', 'button');
+    submit.setAttribute('type', 'submit');
     submit.setAttribute('id', 'form-submit');
+    submit.setAttribute('onclick', 'addBook()');
     submit.innerText = 'Add book';
     form.appendChild(submit);
     // Disable button to prevent multiple forms
     let btn = document.getElementById('add');
-    btn.setAttribute("onclick", "addBook()");
+    btn.setAttribute('disabled', 'true');
+    //btn.setAttribute("onclick", "");
 }
 
 function closeWindow() {
-    form.classList.remove('animate__zoomIn');
-    form.classList.add('animate__zoomOut');
-    console.log('timeout');
-    setTimeout(() => {
-        alert('timeout complete');
-    }, 3000);
+    // form.classList.remove('animate__zoomIn');
+    // form.classList.add('animate__zoomOut');
     for (i=form.childNodes.length-1; i>0; i--) {
         form.removeChild(form.childNodes[i]);
     }
     let btn = document.getElementById('add');
-    btn.setAttribute("onclick", "openForm()");
-    form.classList.remove('animate__animated','animate__zoomOut');
+    btn.removeAttribute('disabled');
+    //btn.setAttribute("onclick", "openForm()");
+    //form.classList.remove('animate__zoomOut', 'animate__animated');
+    container.removeChild(form);
 }
 
 function deleteBook(e) {
     // Remove cards
     clearCards();
     // Remove book from myLibrary array
-    const data = e.parentElement.attributes.data.value;
+    const data = parseInt(e.parentElement.attributes.data.value);
     console.log(data.value);
-    myLibrary.splice(data, (data+1));
+    myLibrary.splice(data, 1);
     console.log(myLibrary);
     // Rebuild array
     buildLibrary();
@@ -195,5 +197,21 @@ function clearCards() {
 }
 
 function addBook() {
-    const author = document.getElementById
+    // Get info
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const readStatus = document.getElementById('read').checked;
+    if (form.checkValidity() == true) {
+        // Pass to constructor function
+        const newBook = new Book(title, author, pages, readStatus);
+        console.log(newBook);
+        // Push book to library array
+        myLibrary.push(newBook);
+        // Close form window
+        closeWindow();
+        // Rebuild cards
+        clearCards();
+        buildLibrary();
+    }
 }
