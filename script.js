@@ -85,11 +85,14 @@ function buildLibrary() {
         // Read status
         var check = document.createElement('input');
         check.setAttribute('type', 'checkbox');
+        check.setAttribute('onclick', 'statusCheck(this)');
         const cls = ['key', 'checkbox']
         check.classList.add(...cls);
+        check.id = 'check' + i;
         book.appendChild(check);
-        let status = document.createElement('p');
+        let status = document.createElement('label');
         status.classList.add('value');
+        status.setAttribute('for', `${check.id}`);
         book.appendChild(status);
         if (myLibrary[i].readStatus == true) {
             check.setAttribute('checked', 'true');
@@ -113,7 +116,7 @@ function openForm() {
     let titleInput = document.createElement('input');
     titleInput.setAttribute('type','text');
     titleInput.setAttribute('id', 'title');
-    titleInput.setAttribute('required', 'true');
+    //titleInput.setAttribute('required', 'true');
     titleInput.classList.add('two');
     form.appendChild(titleInput);
     // Author
@@ -125,7 +128,7 @@ function openForm() {
     let authorInput = document.createElement('input');
     authorInput.setAttribute('type','text');
     authorInput.setAttribute('id', 'author');
-    authorInput.setAttribute('required', 'true');
+    //authorInput.setAttribute('required', 'true');
     authorInput.classList.add('two');
     form.appendChild(authorInput);
     // Pages
@@ -138,7 +141,7 @@ function openForm() {
     pagesInput.setAttribute('type','number');
     pagesInput.setAttribute('id', 'pages');
     pagesInput.setAttribute('min', '1');
-    pagesInput.setAttribute('required', 'true');
+    //pagesInput.setAttribute('required', 'true');
     pagesInput.classList.add('two');
     form.appendChild(pagesInput);
     // Read status
@@ -165,16 +168,29 @@ function openForm() {
     //btn.setAttribute("onclick", "");
 }
 
+function statusCheck(e) {
+    let i = parseInt(e.parentElement.attributes.data.value);
+    let label = document.querySelector(`[for="${e.id}"]`);
+    if (e.checked == true) {
+        label.innerText = "I have read this book";
+        myLibrary[i].readStatus = true;
+    }
+    else if (e.checked == false) {
+        label.innerText = "I haven't read this book yet";
+        myLibrary[i].readStatus = false;
+    }
+}
+
 function closeWindow() {
-    // form.classList.remove('animate__zoomIn');
-    // form.classList.add('animate__zoomOut');
+    form.classList.add('animate__zoomOut');
+    form.classList.remove('animate__zoomIn');
     for (i=form.childNodes.length-1; i>0; i--) {
         form.removeChild(form.childNodes[i]);
     }
     let btn = document.getElementById('add');
     btn.removeAttribute('disabled');
     //btn.setAttribute("onclick", "openForm()");
-    //form.classList.remove('animate__zoomOut', 'animate__animated');
+    form.classList.remove('animate__zoomOut', 'animate__animated');
     container.removeChild(form);
 }
 
