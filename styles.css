@@ -109,14 +109,17 @@ button.delete {
     justify-self: end;
     align-self: start;
 }
-button.delete:hover {
-    cursor: pointer;
-}
 button.delete svg{
     height: 2rem;
     width: auto;
     stroke: white;
     fill: white;
+    border: 2px solid black;
+}
+button.delete svg:hover {
+    cursor: pointer;
+    border-color: white;
+    border-radius: 4px;
 }
 .key {
     grid-column: 1;
