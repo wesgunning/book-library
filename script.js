@@ -133,7 +133,7 @@ function openForm() {
     form.appendChild(authorInput);
     // Pages
     let pagesLabel = document.createElement('label');
-    pagesLabel.innerHTML = '#&nbsp;of&nbsp;pages:';
+    pagesLabel.innerHTML = 'Pages in&nbsp;Book:';
     pagesLabel.setAttribute('for', 'pages');
     pagesLabel.classList.add('one');
     form.appendChild(pagesLabel);
@@ -145,16 +145,19 @@ function openForm() {
     pagesInput.classList.add('two');
     form.appendChild(pagesInput);
     // Read status
+    let div = document.createElement('div');
+    div.id = 'readContainer';
+    form.appendChild(div);
     let checkboxInput = document.createElement('input');
     checkboxInput.setAttribute('type','checkbox');
     checkboxInput.setAttribute('id', 'read');
-    checkboxInput.classList.add('one');
-    form.appendChild(checkboxInput);
+    //checkboxInput.classList.add('one');
+    div.appendChild(checkboxInput);
     let checkboxLabel = document.createElement('label');
-    checkboxLabel.innerHTML = 'I&nbsp;have&nbsp;read&nbsp;this&nbsp;book';
+    checkboxLabel.innerHTML = 'I have read this book';
     checkboxLabel.setAttribute('for', 'read');
-    checkboxLabel.classList.add('two');
-    form.appendChild(checkboxLabel);
+    //checkboxLabel.classList.add('two');
+    div.appendChild(checkboxLabel);
     // Button
     let submit = document.createElement('button');
     submit.setAttribute('type', 'submit');
@@ -183,7 +186,7 @@ function statusCheck(e) {
 
 function closeWindow() {
     form.classList.add('animate__zoomOut');
-    form.classList.remove('animate__zoomIn');
+    //form.classList.remove('animate__zoomIn');
     for (i=form.childNodes.length-1; i>0; i--) {
         form.removeChild(form.childNodes[i]);
     }

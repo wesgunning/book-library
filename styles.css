@@ -10,6 +10,14 @@
     from {width: 0px; height: 0px;};
     to {width: 450px; height: 600px;};
 }
+@font-face {
+    font-family: 'handwritten';
+    src: url(./fonts/aAutoSignature.ttf);
+}
+@font-face {
+    font-family: 'typewriter';
+    src: url(./fonts/JMH\ Typewriter.ttf);
+}
 body {
     background-image: url(./images/old-library-medium.jpeg);
     background-repeat: no-repeat;
@@ -69,12 +77,12 @@ button#add:hover {
     cursor: pointer;
 }
 #container form {
-    height: 600px;
+    height: 650px;
     width: 450px;
     border-radius: 1rem;
-    background-color: black;
-    /* animation-name: grow;
-    animation-duration: 1s; */
+    /*background-color: black;*/
+    background-image: url(./images/index-card.jpeg);
+    background-position: 50% 20%;
     position: absolute;
     z-index: 1;
     justify-self: center;
@@ -83,8 +91,14 @@ button#add:hover {
     display: grid;
     grid-template-rows: min-content repeat(4, 1fr);
     grid-template-columns: min-content 1fr;
-    gap: 20px;
+    gap: 0 20px;
     color: white;
+}
+#readContainer {
+    grid-column: 1/3;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    gap: 20px;
 }
 .cards {
     background-color: hsla(0, 0%, 0%, 0.8);
@@ -114,7 +128,7 @@ button.delete svg{
     width: auto;
     stroke: white;
     fill: white;
-    border: 2px solid black;
+    border: 2px solid hsla(0, 0%, 0%, 0);
 }
 button.delete svg:hover {
     cursor: pointer;
@@ -131,15 +145,19 @@ button.delete svg:hover {
     align-self: start;
 }
 label {
-    font-size: 1.5rem;
+    font: 2.2rem 'handwritten';
+    color: black;
 }
 input {
     height: min-content;
-    font-size: 1.5rem;
 }
 input[type='text'],
 input[type='number'] {
     padding-left: 5px;
+    width: 100%;
+    background-color: hsla(0, 0%, 0%, 0);
+    border-style: none;
+    font: 1.5rem 'typewriter';
 }
 input[type="checkbox"] {
     height: 1.5rem;
@@ -155,14 +173,48 @@ input[type="checkbox"] {
     grid-column: 1/3;
     font-size: 1.5rem;
     border: 2px solid black;
+    background-color: hsla(0, 0%, 0%, 0);
     max-width: 50%;
     justify-self: center;
     padding: 1rem 2rem;
     border-radius: 0.5rem;
+    font-family: 'typewriter';
 }
 #form-submit:hover {
     background-color: black;
     color: buttonface;
     border-color: buttonface;
     cursor: pointer;
+}
+form label[for='title'] {
+    position: relative;
+    top: 35px;
+}
+input#title {
+    position: relative;
+    top: 30px;
+}
+form label[for='author'] {
+    position: relative;
+    top: -15px;
+}
+input#author {
+    position: relative;
+    top: -18px;
+}
+form label[for='pages'] {
+    position: relative;
+    top: -73px;
+}
+input#pages {
+    position: relative;
+    top: -70px;
+}
+input#read {
+    position: relative;
+    top: -10px;
+}
+form label[for='read'] {
+    position: relative;
+    top: -25px;
 }
