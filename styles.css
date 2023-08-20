@@ -18,6 +18,10 @@
     font-family: 'typewriter';
     src: url(./fonts/JMH\ Typewriter.ttf);
 }
+@font-face {
+    font-family: 'calligraphy';
+    src: url(./fonts/ChopinScript.otf);
+}
 body {
     background-image: url(./images/old-library-medium.jpeg);
     background-repeat: no-repeat;
@@ -91,7 +95,6 @@ button#add:hover {
     display: grid;
     grid-template-rows: min-content repeat(4, 1fr);
     grid-template-columns: min-content 1fr;
-    gap: 0 20px;
     color: white;
 }
 #readContainer {
@@ -102,30 +105,36 @@ button#add:hover {
 }
 .cards {
     /* background-color: hsla(0, 0%, 0%, 0.8); */
-    border: 2px solid green;
     background-image: url(./images/book-cover-3D.png);
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 1rem;
-    height: 500px;
-    width: 350px;
+    height: 650px;
+    width: 500px;
     padding: 30px;
+    padding-right: 50px;
     font-size: 1.5rem;
     color: white;
     display: grid;
     gap: 20px;
-    grid-template-columns: min-content 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: min-content repeat(4, 1fr);
     align-items: center;
+    justify-items: center;
 }
 button.delete {
     height: 2rem;
     width: min-content;
     background: none;
     border: none;
-    grid-column: 1/3;
     justify-self: end;
     align-self: start;
+}
+form button.delete {
+    grid-column: 1/3;
+}
+.cards button.delete {
+    padding-right: 20px;
 }
 button.delete svg{
     height: 2rem;
@@ -145,7 +154,7 @@ button.delete svg:hover {
     align-self: start;
 }
 .value {
-    grid-column: 2;
+    /* grid-column: 2; */
     align-self: start;
 }
 form label {
@@ -221,4 +230,20 @@ input#read {
 form label[for='read'] {
     position: relative;
     top: -25px;
+}
+p.title {
+    font: 2.8rem 'calligraphy';
+    letter-spacing: 2px;
+    text-align: center;
+}
+div.checkContainer {
+    display: grid;
+    width: 100%;
+    gap: 20px;
+    grid-template-columns: min-content 1fr;
+    align-items: center;
+    padding-left: 65px;
+}
+.cards span {
+    font-size: 2rem;
 }
