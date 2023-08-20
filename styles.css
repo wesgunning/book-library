@@ -101,7 +101,11 @@ button#add:hover {
     gap: 20px;
 }
 .cards {
-    background-color: hsla(0, 0%, 0%, 0.8);
+    /* background-color: hsla(0, 0%, 0%, 0.8); */
+    border: 2px solid green;
+    background-image: url(./images/book-cover-3D.png);
+    background-repeat: no-repeat;
+    background-size: contain;
     border-radius: 1rem;
     height: 500px;
     width: 350px;
@@ -111,7 +115,7 @@ button#add:hover {
     display: grid;
     gap: 20px;
     grid-template-columns: min-content 1fr;
-    grid-template-rows: min-content repeat(3, 1fr);
+    grid-template-rows: min-content repeat(4, 1fr);
     align-items: center;
 }
 button.delete {
@@ -144,7 +148,7 @@ button.delete svg:hover {
     grid-column: 2;
     align-self: start;
 }
-label {
+form label {
     font: 2.2rem 'handwritten';
     color: black;
 }
