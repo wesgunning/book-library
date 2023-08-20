@@ -25,6 +25,7 @@
 body {
     background-image: url(./images/old-library-medium.jpeg);
     background-repeat: no-repeat;
+    background-size: cover;
     background-attachment: fixed;
     min-height: 100vh;
     max-height: fit-content;
@@ -49,7 +50,7 @@ header {
 }
 header h1 {
     color: tan;
-    font-size: 3.5rem;
+    font-size: 3rem;
 }
 #container {
     padding: 50px;
@@ -57,7 +58,7 @@ header h1 {
     width: 100%;
     grid-row: 2;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
     gap: 30px;
     justify-items: center;
 }
@@ -81,10 +82,9 @@ button#add:hover {
     cursor: pointer;
 }
 #container form {
-    height: 650px;
-    width: 450px;
+    height: 550px;
+    width: 380px;
     border-radius: 1rem;
-    /*background-color: black;*/
     background-image: url(./images/index-card.jpeg);
     background-position: 50% 20%;
     position: absolute;
@@ -95,6 +95,7 @@ button#add:hover {
     display: grid;
     grid-template-rows: min-content repeat(4, 1fr);
     grid-template-columns: min-content 1fr;
+    gap: 0 10px;
     color: white;
 }
 #readContainer {
@@ -104,16 +105,15 @@ button#add:hover {
     gap: 20px;
 }
 .cards {
-    /* background-color: hsla(0, 0%, 0%, 0.8); */
     background-image: url(./images/book-cover-3D.png);
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 1rem;
-    height: 650px;
-    width: 500px;
+    height: 500px;
+    width: 375px;
     padding: 30px;
     padding-right: 50px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: white;
     display: grid;
     gap: 20px;
@@ -132,9 +132,6 @@ button.delete {
 }
 form button.delete {
     grid-column: 1/3;
-}
-.cards button.delete {
-    padding-right: 20px;
 }
 button.delete svg{
     height: 2rem;
@@ -158,7 +155,7 @@ button.delete svg:hover {
     align-self: start;
 }
 form label {
-    font: 2.2rem 'handwritten';
+    font: 2rem 'handwritten';
     color: black;
 }
 input {
@@ -184,14 +181,16 @@ input[type="checkbox"] {
 }
 #form-submit {
     grid-column: 1/3;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     border: 2px solid black;
     background-color: hsla(0, 0%, 0%, 0);
     max-width: 50%;
     justify-self: center;
-    padding: 1rem 2rem;
+    padding: 1rem 1.3rem;
     border-radius: 0.5rem;
     font-family: 'typewriter';
+    position: relative;
+    top: 2px;
 }
 #form-submit:hover {
     background-color: black;
@@ -201,38 +200,39 @@ input[type="checkbox"] {
 }
 form label[for='title'] {
     position: relative;
-    top: 35px;
+    top: 30px;
 }
 input#title {
     position: relative;
-    top: 30px;
+    top: 22px;
 }
 form label[for='author'] {
     position: relative;
-    top: -15px;
+    top: 0px;
 }
 input#author {
     position: relative;
-    top: -18px;
+    top: 0px;
 }
 form label[for='pages'] {
     position: relative;
-    top: -73px;
+    top: -33px;
 }
 input#pages {
     position: relative;
-    top: -70px;
+    top: -25px;
 }
 input#read {
     position: relative;
-    top: -10px;
+    top: -25px;
 }
 form label[for='read'] {
     position: relative;
-    top: -25px;
+    top: -45px;
+    left: 20px;
 }
 p.title {
-    font: 2.8rem 'calligraphy';
+    font: 2.4rem 'calligraphy';
     letter-spacing: 2px;
     text-align: center;
 }
@@ -242,8 +242,15 @@ div.checkContainer {
     gap: 20px;
     grid-template-columns: min-content 1fr;
     align-items: center;
-    padding-left: 65px;
+    padding-left: 30px;
+    position: relative;
+    bottom: 40px;
 }
 .cards span {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+p.title,
+p.author {
+    color: rgb(202, 172, 2);
 }

@@ -30,6 +30,8 @@ form.appendChild(exit);
 exit.setAttribute("onclick", "closeWindow()");
 exit.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close</title><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>`;
 
+buildLibrary();
+
 // Constructor function
 function Book(title, author, pages, readStatus) {
     this.title = title,
@@ -68,11 +70,12 @@ function buildLibrary() {
         author.innerText = 'Author:';
         book.appendChild(author); */
         let p = document.createElement('p');
+        p.classList.add('author');
         p.innerText = 'by';
         book.appendChild(p);
         let authorInfo = document.createElement('span');
         authorInfo.classList.add('author');
-        authorInfo.innerText = ` ${myLibrary[i].author}`;
+        authorInfo.innerText = `${myLibrary[i].author}`;
         p.appendChild(authorInfo);
 
         // Pages info
@@ -174,7 +177,8 @@ function openForm() {
     // Disable button to prevent multiple forms
     let btn = document.getElementById('add');
     btn.setAttribute('disabled', 'true');
-    //btn.setAttribute("onclick", "");
+    // Focus on first input field
+    titleInput.focus();
 }
 
 function statusCheck(e) {
