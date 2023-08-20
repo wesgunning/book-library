@@ -87,6 +87,7 @@ button#add:hover {
     border-radius: 1rem;
     background-image: url(./images/index-card.jpeg);
     background-position: 50% 20%;
+    background-size: 220%;
     position: absolute;
     z-index: 1;
     justify-self: center;
@@ -186,11 +187,11 @@ input[type="checkbox"] {
     background-color: hsla(0, 0%, 0%, 0);
     max-width: 50%;
     justify-self: center;
-    padding: 1rem 1.3rem;
+    padding: 1rem 1.6rem;
     border-radius: 0.5rem;
     font-family: 'typewriter';
     position: relative;
-    top: 2px;
+    top: 15px;
 }
 #form-submit:hover {
     background-color: black;
@@ -200,23 +201,23 @@ input[type="checkbox"] {
 }
 form label[for='title'] {
     position: relative;
-    top: 30px;
+    top: 50px;
 }
 input#title {
     position: relative;
-    top: 22px;
+    top: 43px;
 }
 form label[for='author'] {
     position: relative;
-    top: 0px;
+    top: -5px;
 }
 input#author {
     position: relative;
-    top: 0px;
+    top: -10px;
 }
 form label[for='pages'] {
     position: relative;
-    top: -33px;
+    top: -40px;
 }
 input#pages {
     position: relative;
@@ -224,7 +225,7 @@ input#pages {
 }
 input#read {
     position: relative;
-    top: -25px;
+    top: -43px;
 }
 form label[for='read'] {
     position: relative;
@@ -232,7 +233,7 @@ form label[for='read'] {
     left: 20px;
 }
 p.title {
-    font: 2.4rem 'calligraphy';
+    font: 2.3rem 'calligraphy';
     letter-spacing: 2px;
     text-align: center;
 }
