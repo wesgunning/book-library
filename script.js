@@ -2,19 +2,19 @@ let myLibrary = [
     {
         title: 'The Hobbit',
         author: 'J.R.R. Tolkien',
-        pages: '287',
+        pages: '310',
         readStatus: true
     },
     {
         title: "Harry Potter and the Sorcerer's Stone",
         author: 'J.K. Rowling',
-        pages: '307',
+        pages: '309',
         readStatus: true
         },
     {
         title: 'The Martian',
         author: 'Andy Weir',
-        pages: '305',
+        pages: '387',
         readStatus: false
         }
 ];
@@ -183,15 +183,13 @@ function statusCheck(e) {
 }
 
 function closeWindow() {
-    form.classList.add('animate__zoomOut');
-    //form.classList.remove('animate__zoomIn');
     for (i=form.childNodes.length-1; i>0; i--) {
         form.removeChild(form.childNodes[i]);
     }
     let btn = document.getElementById('add');
     btn.removeAttribute('disabled');
     //btn.setAttribute("onclick", "openForm()");
-    form.classList.remove('animate__zoomOut', 'animate__animated');
+    form.classList.remove('animate__zoomIn', 'animate__animated');
     container.removeChild(form);
 }
 
