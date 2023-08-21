@@ -55,20 +55,12 @@ function buildLibrary() {
         exit.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close</title><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>`;
 
         // Title info
-        /* let title = document.createElement('p');
-        title.classList.add('key');
-        title.innerText = 'Title:';
-        book.appendChild(title); */
         let titleInfo = document.createElement('p');
         titleInfo.classList.add('title');
         titleInfo.innerText = `${myLibrary[i].title}`;
         book.appendChild(titleInfo);
 
         // Author info
-        /* let author = document.createElement('p');
-        author.classList.add('key');
-        author.innerText = 'Author:';
-        book.appendChild(author); */
         let p = document.createElement('p');
         p.classList.add('author');
         p.innerText = 'by';
@@ -79,10 +71,6 @@ function buildLibrary() {
         p.appendChild(authorInfo);
 
         // Pages info
-        /* let pages = document.createElement('p');
-        pages.classList.add('key');
-        pages.innerHTML = '#&nbsp;of&nbsp;pages:';
-        book.appendChild(pages); */
         let pagesInfo = document.createElement('p');
         pagesInfo.classList.add('pages');
         pagesInfo.innerText = `${myLibrary[i].pages} pages`;
@@ -125,7 +113,7 @@ function openForm() {
     let titleInput = document.createElement('input');
     titleInput.setAttribute('type','text');
     titleInput.setAttribute('id', 'title');
-    //titleInput.setAttribute('required', 'true');
+    titleInput.setAttribute('required', 'true');
     titleInput.classList.add('two');
     form.appendChild(titleInput);
     // Author
@@ -137,7 +125,7 @@ function openForm() {
     let authorInput = document.createElement('input');
     authorInput.setAttribute('type','text');
     authorInput.setAttribute('id', 'author');
-    //authorInput.setAttribute('required', 'true');
+    authorInput.setAttribute('required', 'true');
     authorInput.classList.add('two');
     form.appendChild(authorInput);
     // Pages
@@ -150,7 +138,7 @@ function openForm() {
     pagesInput.setAttribute('type','number');
     pagesInput.setAttribute('id', 'pages');
     pagesInput.setAttribute('min', '1');
-    //pagesInput.setAttribute('required', 'true');
+    pagesInput.setAttribute('required', 'true');
     pagesInput.classList.add('two');
     form.appendChild(pagesInput);
     // Read status
