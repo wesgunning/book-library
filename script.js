@@ -33,11 +33,13 @@ exit.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><t
 buildLibrary();
 
 // Constructor function
-function Book(title, author, pages, readStatus) {
-    this.title = title,
-    this.author = author,
-    this.pages = pages,
-    this.readStatus = readStatus;
+class Book {
+    constructor (title, author, pages, readStatus) {
+        this.title = title,
+        this.author = author,
+        this.pages = pages,
+        this.readStatus = readStatus;
+    }
 }
 
 function buildLibrary() {
